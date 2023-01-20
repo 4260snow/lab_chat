@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Чат</title>
@@ -8,10 +8,8 @@
 	<script type="text/javascript" src="chat.js"></script>	
 </head>
 
-
 <body>
 	<div class="wraper container">
-
 		<div class="row">
 			<form class="form-horizontal" role="form">
 				<!--
