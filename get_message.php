@@ -7,7 +7,7 @@
 	$sql = "DELETE FROM `messages` WHERE `date` < DATE_SUB(NOW(), INTERVAL 1 DAY)";
 	mysqli_query($con, $sql);
 	
-	$sql = "SELECT * FROM `$table` WHERE chat_id=1";
+	$sql = "SELECT * FROM `$table` WHERE chat_id=$id";
 	$info = mysqli_query($con, $sql);
 	$res = mysqli_fetch_all($info, MYSQLI_ASSOC);
 
