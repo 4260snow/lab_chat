@@ -1,23 +1,13 @@
-var _maxId;
-var _msg_list;
-
 $(document).ready(function(){
-	_maxId = 0;
-	_msg_list = [];
-	chatRequest();
-	//setInterval(chatRequest, 2000);
-
-	$('#btnSend').click(function(elem){
-		var text = $('#text').val();
-		$.post('add.php', {text: text}, function(){
-			$('#text').attr('value', '');
-		});
-	});
+	chatListRequest()
+	setInterval(chatListRequest(), 40000)
+	$('#join').click(function(elem){});
+	$('#create_chat').click(function(elem){});
 });
 
 function chatRequest()
 {
-  $.post('get_chats.php', {maxId: _maxId}, chatResult, 'json');
+  $.post('get_chat_list.php', {username: username}, chatResult, 'json');
 }
 
 function chatResult(msgs){
