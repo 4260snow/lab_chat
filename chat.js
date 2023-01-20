@@ -1,7 +1,7 @@
-var _msg_list;
+var list_of_msg;
 
 $(document).ready(function(){
-	_msg_list = [];
+	list_of_msg = [];
 	chatRequest();
 	setInterval(chatRequest, 2000);
 
@@ -25,21 +25,21 @@ function chatRequest()
 function chatResult(msgs){
 	for(var i = 0; i < msgs.length; i++)
 	{
-		var m = new Object();
-		m.date = msgs[i]['date'];
-		m.author = msgs[i]['author'];
-		m.text = msgs[i]['text'];
-		_msg_list.push(m);
+		var msg = new Object();
+		msg.date = msgs[i]['date'];
+		msg.author = msgs[i]['author'];
+		msg.text = msgs[i]['text'];
+		list_of_msg.push(msg);
 	}
 
 	var html = '';
-	for (var i = _msg_list.length - 1; i >=0; i--) {
-		var m = _msg_list[i];
+	for (var i = list_of_msg.length - 1; i >= 0; i--) {
+		var msg = list_of_msg[i];
 		if (m.text){
-			html +='<div class="qbox clearfix"><div class="bname col-md-2 pull-left center-block"><p>'+m.author+'</p></div>';
-			html +='<div class="bnameprobel col-md-10 pull-left"><blockquote class="post bg-success pull-left"><p >'+m.text+'<br><span class="data">'+m.date+'</span></p></blockquote></div></div>';
+			html +='<div class="qbox clearfix"><div class="bname col-md-2 pull-left center-block"><p>'+msg.author+'</p></div>';
+			html +='<div class="bnameprobel col-md-10 pull-left"><blockquote class="post bg-success pull-left"><p >'+msg.text+'<br><span class="data">'+msg.date+'</span></p></blockquote></div></div>';
 		}
 	}
-	_msg_list = [];
+	list_of_msg = [];
 	$('#chat').html(html);
 }
