@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 function chatRequest()
 {
-  $.post('get_message.php', chatResult, 'json');
+  $.post('get_message.php',  {chat_id: chat_id}, chatResult, 'json');
 }
 
 function chatResult(msgs){
